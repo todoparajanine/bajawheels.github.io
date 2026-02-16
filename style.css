@@ -1,0 +1,67 @@
+<style>
+
+/* HEADER FIX */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.logo-wrapper {
+  flex-shrink: 0;
+}
+
+.logo-wrapper img {
+  height: 85px;
+  width: auto;
+  display: block;
+}
+
+.header-text {
+  font-size: 22px;
+  font-weight: 500;
+  color: #444;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+select, input, button {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+button {
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-wrapper img {
+    height: 75px;
+  }
+}
+
+</style>

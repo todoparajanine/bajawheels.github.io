@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+  <meta charset="UTF-8">
+  <title>Scooter & E-Bike Rental</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+<style>
+    body {     
+      background: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      padding: 20px;
+      width: 250px;
+      cursor: pointer;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    button {
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #totalPrice {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .info-text {
+      font-size: 14px;
+      margin-top: -5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<section style="text-align:center; padding:80px 20px 40px 20px; background:#f5f5f3;">
+
+  <h1 style="font-size:48px; margin-bottom:15px;" data-i18n="header_line1">
+    The Friendly Way to Tour La Paz
+  </h1>
+
+  <div style="font-size:22px; color:#555; margin-bottom:25px;" data-i18n="header_line2">
+    Modern Mobility for Modern Explorers
+  </div>
+
+  <div style="max-width:700px; margin:0 auto; font-size:18px; color:#555;">
+    Enjoy a powerful premium vehicle paired with personalized service and attention to detail.
+  </div>
+
+</section>
+
+
+<!-- IMAGE SECTION -->
+<section style="padding:40px 20px; background:#f5f5f3;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <img src="Holzschilder.jpg"
+         style="width:100%; border-radius:20px;">
+  </div>
+</section>
+
+
+<!-- BOUTIQUE TEXT SECTION -->
+<section style="text-align:center; padding:60px 20px;">
+
+  <h2 style="font-size:28px; margin-bottom:20px;">
+    Boutique Rental Experience
+  </h2>
+
+  <div style="max-width:800px; margin:0 auto; line-height:1.8; font-size:18px; color:#444;">
+
+    We deliver your eBike or seated eScooter directly to your hotel or accommodation — fully prepared and ready to ride. Explore La Paz at your own pace: quiet, smooth, and effortless. When you're finished, we simply pick it up.
+    <br><br>
+    Booking is easy: Choose your vehicle, select your dates, and send your request — we take care of the rest.
+
+  </div>
+
+</section>
+
+
+<!-- VEHICLE SECTION TITLE -->
+<section style="background:#2f6f5f; padding:40px 20px;">
+  <h2 style="text-align:center; color:white; font-size:28px;">
+    Which vehicle should you choose?
+  </h2>
+</section>
+
+
+<!-- VEHICLE CARDS -->
+<section style="background:#2f6f5f; padding:40px 20px 80px 20px;">
+
+  <div id="vehicleSelection" class="cards">
+
+    <div class="card" onclick="selectVehicle('Scooter')" style="background:white; border-radius:20px;">
+      <h2 data-i18n="scooter_title"></h2>
+      <p data-i18n="scooter_desc"></p>
+      <button style="margin-top:15px;">Book Scooters</button>
+    </div>
+
+    <div class="card" onclick="selectVehicle('eBike')" style="background:white; border-radius:20px;">
+      <h2 data-i18n="ebike_title"></h2>
+      <p data-i18n="ebike_desc"></p>
+      <button style="margin-top:15px;">Book eBikes</button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BOOKING SECTION (UNVERÄNDERT – FUNKTIONALITÄT BLEIBT) -->
+<section style="padding:80px 20px; background:#f5f5f3;">
+
+  <div id="bookingSection" class="hidden" style="max-width:600px; margin:0 auto;">
+
+    <h2 id="vehicleTitle" style="text-align:center;"></h2>
+
+    <label data-i18n="label_name"></label>
+    <input type="text" id="customerName" required>
+
+    <label data-i18n="label_start"></label>
+    <input type="date" id="startDate">
+
+    <label data-i18n="label_end"></label>
+    <input type="date" id="endDate">
+
+    <label data-i18n="label_quantity"></label>
+    <input type="number" id="quantity" value="1" min="1">
+
+    <label data-i18n="label_delivery"></label>
+    <select id="deliveryZone"></select>
+
+    <p class="info-text" data-i18n="delivery_info"></p>
+
+    <div id="totalPrice">$0</div>
+
+    <button id="whatsappBtn" onclick="sendWhatsApp()" data-i18n="btn_whatsapp"></button>
+
+  </div>
+
+</section>
+
+
+<script src="app.js"></script>
+
+</body>
+
+<script src="app.js"></script>
+
+</body>
+</html>
