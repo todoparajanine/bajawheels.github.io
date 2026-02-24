@@ -1,163 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-
-
   <meta charset="UTF-8">
   <title>Scooter & E-Bike Rental</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
-
-<style>
-    body {     
-      background: white;
-      color: black;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    .cards {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .card {
-      border: 1px solid #ddd;
-      padding: 20px;
-      width: 250px;
-      cursor: pointer;
-      text-align: center;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      font-size: 16px;
-    }
-
-    button {
-      background: black;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    #totalPrice {
-      font-size: 22px;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .info-text {
-      font-size: 14px;
-      margin-top: -5px;
-    }
-  </style>
+  <!-- EXTERNAL STYLESHEET -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- HERO SECTION -->
-<section style="text-align:center; padding:80px 20px 40px 20px; background:#f5f5f3;">
-
-  <h1 style="font-size:48px; margin-bottom:15px;" data-i18n="header_line1">
+<section class="hero">
+  <h1 data-i18n="header_line1">
     The Friendly Way to Tour La Paz
   </h1>
 
-  <div style="font-size:22px; color:#555; margin-bottom:25px;" data-i18n="header_line2">
+  <div class="hero-subtitle" data-i18n="header_line2">
     Modern Mobility for Modern Explorers
   </div>
 
-  <div style="max-width:700px; margin:0 auto; font-size:18px; color:#555;">
+  <p class="hero-text">
     Enjoy a powerful premium vehicle paired with personalized service and attention to detail.
-  </div>
-
+  </p>
 </section>
 
 
 <!-- IMAGE SECTION -->
-<section style="padding:40px 20px; background:#f5f5f3;">
-  <div style="max-width:1100px; margin:0 auto;">
-    <img src="Holzschilder.jpg"
-         style="width:100%; border-radius:20px;">
+<section class="image-section">
+  <div class="image-container">
+    <img src="Holzschilder.jpg" alt="La Paz Signs">
   </div>
 </section>
 
 
-<!-- BOUTIQUE TEXT SECTION -->
-<section style="text-align:center; padding:60px 20px;">
+<!-- BOUTIQUE TEXT -->
+<section class="boutique">
+  <h2>Boutique Rental Experience</h2>
 
-  <h2 style="font-size:28px; margin-bottom:20px;">
-    Boutique Rental Experience
-  </h2>
-
-  <div style="max-width:800px; margin:0 auto; line-height:1.8; font-size:18px; color:#444;">
-
+  <div class="boutique-text">
     We deliver your eBike or seated eScooter directly to your hotel or accommodation — fully prepared and ready to ride. Explore La Paz at your own pace: quiet, smooth, and effortless. When you're finished, we simply pick it up.
     <br><br>
     Booking is easy: Choose your vehicle, select your dates, and send your request — we take care of the rest.
-
   </div>
-
 </section>
 
 
-<!-- VEHICLE SECTION TITLE -->
-<section style="background:#2f6f5f; padding:40px 20px;">
-  <h2 style="text-align:center; color:white; font-size:28px;">
-    Which vehicle should you choose?
-  </h2>
+<!-- VEHICLE TITLE -->
+<section class="vehicle-title">
+  <h2>Which vehicle should you choose?</h2>
 </section>
 
 
 <!-- VEHICLE CARDS -->
-<section style="background:#2f6f5f; padding:40px 20px 80px 20px;">
+<section class="vehicle-section">
 
   <div id="vehicleSelection" class="cards">
 
-    <div class="card" onclick="selectVehicle('Scooter')" style="background:white; border-radius:20px;">
-      <h2 data-i18n="scooter_title"></h2>
-      <p data-i18n="scooter_desc"></p>
-      <button style="margin-top:15px;">Book Scooters</button>
+    <!-- SCOOTER -->
+    <div class="modern-card" onclick="selectVehicle('Scooter')">
+
+      <img src="Roue_Y2.jpg" alt="Roue Y2 eScooter" class="card-image">
+
+      <div class="card-content">
+        <h3 data-i18n="scooter_title"></h3>
+        <p data-i18n="scooter_desc"></p>
+
+        <ul class="specs">
+          <li>1000 W</li>
+          <li>max. 55 km/h / 34 mph</li>
+          <li>3 speed levels</li>
+          <li>up to 45 km / 28 mi autonomy</li>
+        </ul>
+
+        <button class="green-btn">Book eScooters</button>
+      </div>
     </div>
 
-    <div class="card" onclick="selectVehicle('eBike')" style="background:white; border-radius:20px;">
-      <h2 data-i18n="ebike_title"></h2>
-      <p data-i18n="ebike_desc"></p>
-      <button style="margin-top:15px;">Book eBikes</button>
+
+    <!-- EBIKE -->
+    <div class="modern-card" onclick="selectVehicle('eBike')">
+
+      <img src="Roue_Baja.jpg" alt="Roue Baja eBike" class="card-image">
+
+      <div class="card-content">
+        <h3 data-i18n="ebike_title"></h3>
+        <p data-i18n="ebike_desc"></p>
+
+        <ul class="specs">
+          <li>750 W</li>
+          <li>max. 45 km/h / 28 mph</li>
+          <li>7 speed Shimano system</li>
+        </ul>
+
+        <button class="green-btn">Book eBikes</button>
+      </div>
     </div>
 
   </div>
-
 </section>
 
 
-<!-- BOOKING SECTION (UNVERÄNDERT – FUNKTIONALITÄT BLEIBT) -->
-<section style="padding:80px 20px; background:#f5f5f3;">
+<!-- BOOKING SECTION -->
+<section class="booking-section">
 
-  <div id="bookingSection" class="hidden" style="max-width:600px; margin:0 auto;">
+  <div id="bookingSection" class="booking-container hidden">
 
-    <h2 id="vehicleTitle" style="text-align:center;"></h2>
+    <h2 id="vehicleTitle"></h2>
 
     <label data-i18n="label_name"></label>
     <input type="text" id="customerName" required>
@@ -178,16 +128,10 @@
 
     <div id="totalPrice">$0</div>
 
-    <button id="whatsappBtn" onclick="sendWhatsApp()" data-i18n="btn_whatsapp"></button>
+    <button onclick="sendWhatsApp()" data-i18n="btn_whatsapp"></button>
 
   </div>
-
 </section>
-
-
-<script src="app.js"></script>
-
-</body>
 
 <script src="app.js"></script>
 

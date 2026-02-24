@@ -1,0 +1,139 @@
+<style>
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.logo-wrapper {
+  flex-shrink: 0;
+}
+
+.logo-wrapper img {
+  height: 75px;
+  width: auto;
+  display: block;
+}
+
+.header-text {
+  font-size: 22px;
+  font-weight: 500;
+  color: #444;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* FORM ELEMENTS */
+select, input, button {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+button {
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* VEHICLE CARDS */
+.cards {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modern-card {
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  width: 420px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-6px);
+}
+
+.card-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 25px;
+  text-align: left;
+}
+
+.card-content h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.specs {
+  margin-top: 15px;
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+.green-btn {
+  background: #2f6f5f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  margin-top: 20px;
+  cursor: pointer;
+  width: auto;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modern-card {
+    width: 95%;
+  }
+}
+
+</style>
+
+
+
+
+
+
+
+</style>
+
+
