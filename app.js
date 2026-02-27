@@ -1,8 +1,8 @@
-const translations = {
+const translations = { 
   en: {
     header_line1: "The Friendly Way to Tour La Paz",
     header_line2: "Modern E-Rentals for Modern Explorers",    
-    title_select_vehicle: "Rent an Eletronic Vehicle",
+    title_select_vehicle: "Rent an Electronic Vehicle",
     scooter_title: "E-Scooter",
     scooter_desc: "Perfect for city rides",
     ebike_title: "E-Bike",
@@ -12,25 +12,11 @@ const translations = {
     label_end: "End Date",
     label_quantity: "Quantity",
     label_delivery: "Delivery Location",
-    delivery_info: "Delivery within La Paz city is included. Additional fees apply outside city limits.",
-    btn_whatsapp: "Send Booking via WhatsApp", 
-    intro_paragraph_1: "A Boutique Electric Rental Experience in La Paz.\n\nEnjoy a powerful premium vehicle paired with personalized    service and attention to detail.",
-
-    intro_paragraph_2: "We deliver your eBike or seated eScooter directly to your hotel or accommodation — fully prepared and ready to ride. Explore La Paz at your own pace: quiet, smooth, and effortless. When you're finished, we simply pick it up.",
-
-    intro_booking: "Booking is easy: Choose your vehicle, select your dates, and send your request — we take care of the rest.",
-
-    intro_choose_title: "Which one should you choose?",
-
-    intro_scooter: "If you’d like to explore downtown La Paz and nearby beaches in the safest and most relaxed way, the seated eScooter is a perfect fit.",
-
-    intro_ebike: "If you want to ride farther, reach scenic viewpoints, or explore beyond the city — including light off-road terrain — the eBike is your best choice.",
-
-    intro_cta: "Make your selection and reserve today.",
+    delivery_info: "Delivery or pick up within the city is included. Additional fees apply for the outskirts.",
+    btn_whatsapp: "Send Booking via WhatsApp",
+    price_list_title: "Prices (1–7 Days)"
   },
-  
-
-es: {
+  es: {
     header_line1: "La manera más facil de recorrer La Paz",
     header_line2: "Movilidad moderna para explorar con libertad",
     title_select_vehicle: "Renta un vehículo electronico",
@@ -44,21 +30,8 @@ es: {
     label_quantity: "Cantidad",
     label_delivery: "Ubicación de Entrega",
     delivery_info: "La entrega dentro de La Paz está incluida. Se aplican cargos adicionales fuera de la ciudad.",
-    btn_whatsapp: "Enviar reserva por WhatsApp", 
-    intro_paragraph_1: "Una experiencia boutique de renta eléctrica en La Paz.\n\nDisfruta de un vehículo premium potente, acompañado de un servicio personalizado y atención a cada detalle.",
-
-    intro_paragraph_2: "Entregamos tu eBike o eScooter con asiento directamente en tu hotel o alojamiento — listo para usar. Recorre La Paz a tu propio ritmo: silencioso, suave y sin esfuerzo. Cuando termines, simplemente lo recogemos.",
-
-    intro_booking: "Reservar es muy fácil: Elige tu vehículo, selecciona tus fechas y envía tu solicitud — nosotros nos encargamos del resto.",
-
-    intro_choose_title: "¿Cuál deberías elegir?",
-
-    intro_scooter: "Si deseas recorrer el centro de La Paz y las playas cercanas de la forma más segura y relajada, el eScooter con asiento es ideal para ti.",
-
-    intro_ebike: "Si prefieres llegar más lejos, subir a miradores panorámicos o explorar fuera de la ciudad — incluso en caminos ligeros fuera de pavimento — la eBike es tu mejor opción.",
-
-    intro_cta: "Haz tu elección y reserva hoy mismo.",
-
+    btn_whatsapp: "Enviar reserva por WhatsApp",
+    price_list_title: "Precios (1–7 Días)"
   }
 };
 
@@ -74,11 +47,16 @@ function applyTranslations(lang) {
       el.innerText = translations[lang][key];
     }
   });
+
+  // Preislistentitel aktualisieren
+  const priceTitle = document.getElementById("priceListTitle");
+  if (priceTitle) {
+    priceTitle.innerText = translations[lang].price_list_title;
+  }
 }
 
-
-
 let selectedVehicle = "";
+let selectedVehicleImage = "";
 let priceData = [];
 let surchargeData = [];
 
@@ -99,15 +77,61 @@ async function loadSurcharges() {
   populateDeliveryZones();
 }
 
-// ---------- UI FUNCTIONS ----------
+// ---------- VEHICLE SELECTION ----------
 
-function selectVehicle(type) {
+function selectVehicle(type, imagePath) {
+
   selectedVehicle = type;
+
   document.getElementById("vehicleSelection").style.display = "none";
-  document.getElementById("bookingSection").style.display = "block";
+  document.getElementById("bookingSection").classList.remove("hidden");
+
+  if (!imagePath) {
+    imagePath = type === "scooter" ? "scooter.jpeg" : "ebike.jpeg";
+  }
+
+  document.getElementById("formVehicleImage").src = imagePath;
+
+  // Preise erst rendern wenn geladen
+  if (priceData.length) {
+    renderPriceList();
+  } else {
+    loadPrices().then(renderPriceList);
+  }
 }
 
-// ---------- DELIVERY DROPDOWN ----------
+// ---------- BACK BUTTON ----------
+
+function closeForm() {
+  document.getElementById("bookingSection").style.display = "none";
+  document.getElementById("vehicleSelection").style.display = "block";
+}
+
+// ---------- PRICE LIST 1–7 DAYS ----------
+
+function renderPriceList() {
+
+  if (!priceData.length || !selectedVehicle) return;
+
+  const container = document.getElementById("priceList");
+  container.innerHTML = "";
+
+  for (let i = 1; i <= 7; i++) {
+
+    const price = getPrice(i, selectedVehicle);
+
+    const row = document.createElement("div");
+    row.className = "price-row";
+    row.innerHTML = `
+      <span>${i} Day${i > 1 ? "s" : ""}</span>
+      <span>$${price}</span>
+    `;
+
+    container.appendChild(row);
+  }
+}
+
+// ---------- DELIVERY ----------
 
 function populateDeliveryZones() {
   const select = document.getElementById("deliveryZone");
@@ -165,14 +189,16 @@ function calculate() {
 
   const basePrice = getPrice(days, selectedVehicle) * quantity;
   const surcharge = getSurcharge(zone);
-
   const total = basePrice + surcharge;
 
   document.getElementById("totalPrice").innerText = "$" + total;
 }
 
+// ---------- WHATSAPP ----------
+
 function sendWhatsApp() {
-  const name = document.getElementById("customerName").value.trim();const start = document.getElementById("startDate").value;
+  const name = document.getElementById("customerName").value.trim();
+  const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
   const quantity = document.getElementById("quantity").value;
   const zone = document.getElementById("deliveryZone").value;
@@ -184,11 +210,13 @@ function sendWhatsApp() {
   }
 
   const message = `
-Hi Baja Wheels, I would like to rent ${quantity} ${selectedVehicle}(s) from: ${start}
-to ${end} in ${zone} at MXN ${total}. Please confirm availability. Thanks, ${name} 
+Hi Baja Wheels, I would like to rent ${quantity} ${selectedVehicle}(s) 
+from ${start} to ${end} in ${zone}. 
+Total: MXN ${total}. 
+Thanks, ${name}
   `;
 
-  const phoneNumber = "41797943212"; // ← Deine WhatsApp Nummer hier einsetzen
+  const phoneNumber = "41797943212";
 
   const url =
     "https://wa.me/" +
@@ -198,7 +226,8 @@ to ${end} in ${zone} at MXN ${total}. Please confirm availability. Thanks, ${nam
 
   window.open(url, "_blank");
 }
-// ---------- INIT AFTER PAGE LOAD ----------
+
+// ---------- INIT ----------
 
 document.addEventListener("DOMContentLoaded", function () {
 

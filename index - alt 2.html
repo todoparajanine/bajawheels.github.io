@@ -67,7 +67,7 @@
   <div id="vehicleSelection" class="cards">
 
     <!-- SCOOTER -->
-    <div class="modern-card">
+    <div class="modern-card" onclick="selectVehicle('Scooter')">
       <img src="Roue_Y2.jpeg" alt="Roue Y2 eScooter" class="card-image">
 
       <div class="card-content">
@@ -81,15 +81,13 @@
           <li>up to 45 km / 28 mi autonomy</li>
         </ul>
 
-        <button onclick="selectVehicle('scooter', 'scooter.jpeg')">
-        Select
-        </button>
+        <button class="green-btn">Book eScooters</button>
       </div>
     </div>
 
 
     <!-- EBIKE -->
-    <div class="modern-card">
+    <div class="modern-card" onclick="selectVehicle('eBike')">
       <img src="Roue_Baja.jpeg" alt="Roue Baja eBike" class="card-image">
 
       <div class="card-content">
@@ -103,10 +101,7 @@
           <li>7 speed Shimano system</li>
         </ul>
 
-        <button onclick="selectVehicle('ebike', 'ebike.jpeg')">
-        Select
-        </button>
-
+        <button class="green-btn">Book eBikes</button>
       </div>
     </div>
 
@@ -118,22 +113,10 @@
 <section class="booking-section">
   <div id="bookingSection" class="booking-container hidden">
 
-      
-
-    <!-- VEHICLE IMAGE -->
-    <img id="formVehicleImage" class="form-vehicle-image" src="" alt="Vehicle">
-
-    <!-- PRICE LIST TITLE -->
-    <h3 id="priceListTitle" class="price-title">Prices (1–7 Days)</h3>
-
-    <!-- PRICE LIST -->
-    <div id="priceList" class="price-list"></div>
-
-    <!-- FORM START -->
     <h2 id="vehicleTitle"></h2>
 
     <label data-i18n="label_name"></label>
-    <input type="text" id="customerName">
+    <input type="text" id="customerName" required>
 
     <label data-i18n="label_start"></label>
     <input type="date" id="startDate">
@@ -151,15 +134,11 @@
 
     <div id="totalPrice">$0</div>
 
-    <button type="button" onclick="sendWhatsApp()" data-i18n="btn_whatsapp"></button>
-
-    <!-- BACK BUTTON -->
-    <button type="button" class="back-bottom-btn" onclick="closeForm()">
-      ← Back
-    </button>
+    <button onclick="sendWhatsApp()" data-i18n="btn_whatsapp"></button>
 
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer class="footer">
