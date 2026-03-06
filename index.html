@@ -49,7 +49,7 @@
   <h2>Boutique Rental Experience</h2>
 
   <div class="boutique-text">
-    We deliver your eBike or seated eScooter directly to your hotel or accommodation — fully prepared and ready to ride. Explore La Paz at your own pace: quiet, smooth, and effortless. When you're finished, we simply pick it up.
+    We pick you up or deliver your vehicle directly to your hotel or accommodation — fully prepared and ready to ride. Explore La Paz at your own pace: quiet, smooth, and effortless.
     <br><br>
     Booking is easy: Choose your vehicle, select your dates, and send your request — we take care of the rest.
   </div>
@@ -151,7 +151,17 @@
 
     <div id="totalPrice">$0</div>
 
-    <button type="button" onclick="sendWhatsApp()" data-i18n="btn_whatsapp"></button>
+    <div class="legal-consent">
+
+    <label class="checkbox-container">
+    <input type="checkbox" id="acceptLegal">
+    <span class="checkmark"></span>
+    <span data-i18n="legal_accept"></span>
+    </label>
+
+    </div>
+
+    <button type="button" id="whatsappBtn" onclick="sendWhatsApp()" disabled data-i18n="btn_whatsapp"></button>
 
     <!-- BACK BUTTON -->
     <button type="button" class="back-bottom-btn" onclick="closeForm()">
@@ -163,50 +173,35 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <a href="#" onclick="openImpressum()">Impressum / Legal Notice</a>
+  <a href="#" onclick="openLegal()" data-i18n="legal_title">Legal Disclaimer</a>
 </footer>
 
 
-<!-- IMPRESSUM MODAL -->
-<div id="impressumModal" class="modal hidden">
+<!-- LEGAL DISCLAIMER MODAL -->
+<div id="legalModal" class="modal hidden">
   <div class="modal-content">
-    <span class="close" onclick="closeImpressum()">×</span>
 
-    <h2>Impressum</h2>
-    <p>
-      <strong>Baja Wheels</strong><br>
-      Betreiber: [Dein Name]<br>
-      Adresse: [Deine Adresse]<br>
-      La Paz, Baja California Sur<br>
-      Mexiko<br>
-      E-Mail: [deine@email.com]
-    </p>
+    <span class="close" onclick="closeLegal()">×</span>
 
-    <hr>
+    <h2 data-i18n="legal_title"></h2>
 
-    <h2>Legal Notice</h2>
-    <p>
-      <strong>Baja Wheels</strong><br>
-      Owner: [Your Name]<br>
-      Address: [Your Address]<br>
-      La Paz, Baja California Sur<br>
-      Mexico<br>
-      Email: [your@email.com]
-    </p>
+    <div data-i18n="legal_text"></div>
+
   </div>
 </div>
-
 
 <script src="app.js"></script>
 
 <script>
-function openImpressum() {
-  document.getElementById("impressumModal").classList.remove("hidden");
+function openLegal() {
+  document.getElementById("legalModal").classList.remove("hidden");
 }
-function closeImpressum() {
-  document.getElementById("impressumModal").classList.add("hidden");
+
+function closeLegal() {
+  document.getElementById("legalModal").classList.add("hidden");
 }
 </script>
+
 
 </body>
 </html>

@@ -6,15 +6,43 @@ const translations = {
     scooter_title: "E-Scooter",
     scooter_desc: "Perfect for city rides",
     ebike_title: "E-Bike",
-    ebike_desc: "Comfort & longer distances",
+    ebike_desc: "For short & longer rides",
     label_name: "Your Name",
     label_start: "Start Date",
     label_end: "End Date",
     label_quantity: "Quantity",
     label_delivery: "Delivery Location",
-    delivery_info: "Delivery or pick up within the city is included. Additional fees apply for the outskirts.",
-    btn_whatsapp: "Send Booking via WhatsApp",
-    price_list_title: "Prices (1–7 Days)"
+    delivery_info: "Customer pick up or vehicle delivery within the city is included. Additional fees apply for the outskirts.",
+    btn_whatsapp: "Send Booking Request via WhatsApp",
+    price_list_title: "Prices (1–7 days @ 24 hours)",
+    legal_title: "Legal Disclaimer & Privacy Notice",
+
+    legal_accept: "By using our services you acknowledge and accept these terms.",
+
+    legal_title: "Legal Disclaimer & Privacy Notice",
+
+legal_accept: "By using our services you acknowledge and accept these terms.",
+
+legal_text: `
+Rental Conditions
+Minimum age: 18 years. Valid ID or passport required. Vehicles must be used responsibly and in accordance with local traffic laws.
+
+Liability
+Use of the vehicle is entirely at the renter’s own risk. Baja Wheels does not provide insurance for riders, passengers, or third parties.
+
+Mechanical Issues
+If a mechanical problem occurs not caused by misuse, we will provide assistance or a replacement vehicle when available.
+
+Privacy Notice
+We may collect basic personal data such as name, contact information, rental dates, and delivery location solely to process rental requests.
+
+Personal data is never sold or shared with third parties except when required by law.
+
+Contact: bajawheelslapaz@gmail.com
+
+Governing Law
+This service is governed by the laws of Mexico. Jurisdiction: Baja California Sur.
+`
   },
   es: {
     header_line1: "La manera más facil de recorrer La Paz",
@@ -29,9 +57,34 @@ const translations = {
     label_end: "Fecha Final",
     label_quantity: "Cantidad",
     label_delivery: "Ubicación de Entrega",
-    delivery_info: "La entrega dentro de La Paz está incluida. Se aplican cargos adicionales fuera de la ciudad.",
-    btn_whatsapp: "Enviar reserva por WhatsApp",
-    price_list_title: "Precios (1–7 Días)"
+    delivery_info: "La recogida de personas o entrega de vehiculos dentro de La Paz está incluida. Se aplican cargos adicionales fuera      de la ciudad.",
+    btn_whatsapp: "Enviar solicitud de reserva por WhatsApp",
+    price_list_title: "Precios (1–7 días @ 24 horas)",
+
+    legal_title: "Aviso Legal y Aviso de Privacidad",
+
+legal_accept: "Al utilizar nuestros servicios usted acepta estos términos.",
+
+legal_text: `
+Condiciones de Renta
+Edad mínima: 18 años. Se requiere identificación oficial o pasaporte. Los vehículos deben utilizarse de forma responsable y conforme a las leyes de tránsito.
+
+Responsabilidad
+El uso del vehículo se realiza bajo el propio riesgo del arrendatario. Baja Wheels no proporciona seguro para conductores, pasajeros o terceros.
+
+Problemas Mecánicos
+En caso de falla mecánica no causada por uso indebido, Baja Wheels proporcionará asistencia o un vehículo de reemplazo si está disponible.
+
+Aviso de Privacidad
+Podemos recopilar datos personales básicos como nombre, contacto, fechas de renta y ubicación de entrega únicamente para procesar la solicitud de renta.
+
+Los datos personales no se venden ni se comparten con terceros salvo obligación legal.
+
+Contacto: bajawheelslapaz@gmail.com
+
+Legislación Aplicable
+Este servicio se rige por las leyes de México. Jurisdicción: Baja California Sur.
+`
   }
 };
 
@@ -234,11 +287,68 @@ document.addEventListener("DOMContentLoaded", function () {
   const lang = detectLanguage();
   applyTranslations(lang);
 
-  document.getElementById("startDate").addEventListener("change", calculate);
-  document.getElementById("endDate").addEventListener("change", calculate);
-  document.getElementById("quantity").addEventListener("input", calculate);
-  document.getElementById("deliveryZone").addEventListener("change", calculate);
+  document.getElementById("startDate")?.addEventListener("change", calculate);
+  document.getElementById("endDate")?.addEventListener("change", calculate);
+  document.getElementById("quantity")?.addEventListener("input", calculate);
+  document.getElementById("deliveryZone")?.addEventListener("change", calculate);
+
+  const checkbox = document.getElementById("acceptLegal");
+  const whatsappBtn = document.getElementById("whatsappBtn");
+
+  if (checkbox && whatsappBtn) {
+    checkbox.addEventListener("change", function () {
+      whatsappBtn.disabled = !this.checked;
+    });
+  }
 
   loadPrices();
   loadSurcharges();
+
+});// ---------- INIT ----------
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const lang = detectLanguage();
+  applyTranslations(lang);
+
+  const startDate = document.getElementById("startDate");
+  const endDate = document.getElementById("endDate");
+  const quantity = document.getElementById("quantity");
+  const deliveryZone = document.getElementById("deliveryZone");
+
+  if (startDate) startDate.addEventListener("change", calculate);
+  if (endDate) endDate.addEventListener("change", calculate);
+  if (quantity) quantity.addEventListener("input", calculate);
+  if (deliveryZone) deliveryZone.addEventListener("change", calculate);
+
+  const checkbox = document.getElementById("acceptLegal");
+  const whatsappBtn = document.getElementById("whatsappBtn");
+
+  if (checkbox && whatsappBtn) {
+    checkbox.addEventListener("change", function () {
+      whatsappBtn.disabled = !this.checked;
+    });
+  }
+
+  loadPrices();
+  loadSurcharges();
+
 });
+
+
+// Legal checkbox activation
+document.addEventListener("DOMContentLoaded", function () {
+
+  const checkbox = document.getElementById("acceptLegal");
+  const whatsappBtn = document.getElementById("whatsappBtn");
+
+  if (checkbox && whatsappBtn) {
+    whatsappBtn.disabled = true;
+
+    checkbox.addEventListener("change", function () {
+      whatsappBtn.disabled = !this.checked;
+    });
+  }
+
+});
+
