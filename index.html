@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Baja Wheels – Scooter & E-Bike Rental</title>
+<title id="pageTitle">Baja Wheels – Scooter & E-Bike Rental</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Font -->
@@ -22,6 +22,7 @@
 
 <!-- HERO SECTION -->
 <section class="hero">
+
   <h1 data-i18n="header_line1">
     The Friendly Way to Tour La Paz
   </h1>
@@ -30,9 +31,10 @@
     Modern Mobility for Modern Explorers
   </div>
 
-  <p class="hero-text">
+  <p class="hero-text" data-i18n="hero_text">
     Enjoy a powerful premium vehicle paired with personalized service and attention to detail.
   </p>
+
 </section>
 
 
@@ -43,22 +45,17 @@
   </div>
 </section>
 
-
 <!-- BOUTIQUE TEXT -->
 <section class="boutique">
-  <h2>Boutique Rental Experience</h2>
+  <h2 data-i18n="boutique_title"></h2>
 
-  <div class="boutique-text">
-    We pick you up or deliver your vehicle directly to your hotel or accommodation — fully prepared and ready to ride. Explore La Paz at your own pace: quiet, smooth, and effortless.
-    <br><br>
-    Booking is easy: Choose your vehicle, select your dates, and send your request — we take care of the rest.
-  </div>
+  <div class="boutique-text" data-i18n="boutique_text"></div>
 </section>
 
 
 <!-- VEHICLE TITLE -->
 <section class="vehicle-title">
-  <h2>Which vehicle should you choose?</h2>
+  <h2 data-i18n="vehicle_question"></h2>
 </section>
 
 
@@ -81,9 +78,13 @@
           <li>up to 45 km / 28 mi autonomy</li>
         </ul>
 
-        <button onclick="selectVehicle('scooter', 'scooter.jpeg')">
-        Select
+        <button 
+          type="button"
+          onclick="selectVehicle('scooter','scooter.jpeg')" 
+          data-i18n="btn_select">
+          Select
         </button>
+
       </div>
     </div>
 
@@ -103,8 +104,11 @@
           <li>7 speed Shimano system</li>
         </ul>
 
-        <button onclick="selectVehicle('ebike', 'ebike.jpeg')">
-        Select
+        <button 
+          type="button"
+          onclick="selectVehicle('ebike','ebike.jpeg')" 
+          data-i18n="btn_select">
+          Select
         </button>
 
       </div>
@@ -124,7 +128,7 @@
     <img id="formVehicleImage" class="form-vehicle-image" src="" alt="Vehicle">
 
     <!-- PRICE LIST TITLE -->
-    <h3 id="priceListTitle" class="price-title">Prices (1–7 Days)</h3>
+    <h3 id="priceListTitle" class="price-title" data-i18n="price_list_title"></h3>
 
     <!-- PRICE LIST -->
     <div id="priceList" class="price-list"></div>
@@ -164,9 +168,7 @@
     <button type="button" id="whatsappBtn" onclick="sendWhatsApp()" disabled data-i18n="btn_whatsapp"></button>
 
     <!-- BACK BUTTON -->
-    <button type="button" class="back-bottom-btn" onclick="closeForm()">
-      ← Back
-    </button>
+    <button type="button" class="back-bottom-btn" onclick="closeForm()" data-i18n="btn_back"></button>
 
   </div>
 </section>

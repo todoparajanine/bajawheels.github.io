@@ -1,91 +1,96 @@
-const translations = { 
-  en: {
-    header_line1: "The Friendly Way to Tour La Paz",
-    header_line2: "Modern E-Rentals for Modern Explorers",    
-    title_select_vehicle: "Rent an Electronic Vehicle",
-    scooter_title: "E-Scooter",
-    scooter_desc: "Perfect for city rides",
-    ebike_title: "E-Bike",
-    ebike_desc: "For short & longer rides",
-    label_name: "Your Name",
-    label_start: "Start Date",
-    label_end: "End Date",
-    label_quantity: "Quantity",
-    label_delivery: "Delivery Location",
-    delivery_info: "Customer pick up or vehicle delivery within the city is included. Additional fees apply for the outskirts.",
-    btn_whatsapp: "Send Booking Request via WhatsApp",
-    price_list_title: "Prices (1–7 days @ 24 hours)",
-    legal_title: "Legal Disclaimer & Privacy Notice",
+const translations = {
 
-    legal_accept: "By using our services you acknowledge and accept these terms.",
+en: {
 
-    legal_title: "Legal Disclaimer & Privacy Notice",
+page_title: "Baja Wheels – Scooter & E-Bike Rental",
 
-legal_accept: "By using our services you acknowledge and accept these terms.",
+header_line1: "The Friendly Way to Tour La Paz",
+header_line2: "Modern Mobility for Modern Explorers",
+hero_text: "Enjoy a powerful premium vehicle paired with personalized service and attention to detail.",
 
-legal_text: `
-Rental Conditions
-Minimum age: 18 years. Valid ID or passport required. Vehicles must be used responsibly and in accordance with local traffic laws.
+boutique_title: "Boutique Rental Experience",
+boutique_text: "We pick you up or deliver your vehicle directly to your hotel or accommodation — fully prepared and ready to ride.Explore La Paz at your own pace: quiet, smooth, and effortless. <br><br>Booking is easy: choose your vehicle, select your dates, and send your request — we take care of the rest.",
 
-Liability
-Use of the vehicle is entirely at the renter’s own risk. Baja Wheels does not provide insurance for riders, passengers, or third parties.
+vehicle_question: "Which vehicle should you choose?",
 
-Mechanical Issues
-If a mechanical problem occurs not caused by misuse, we will provide assistance or a replacement vehicle when available.
+scooter_title: "Electric Scooter",
+scooter_desc: "Powerful urban scooter for quick city exploration.",
 
-Privacy Notice
-We may collect basic personal data such as name, contact information, rental dates, and delivery location solely to process rental requests.
+ebike_title: "Electric Bike",
+ebike_desc: "Comfortable and powerful eBike for longer rides.",
 
-Personal data is never sold or shared with third parties except when required by law.
+btn_select: "Select",
+btn_back: "← Back",
 
-Contact: bajawheelslapaz@gmail.com
+vehicle_scooter: "scooters",
+vehicle_ebike: "electric bikes",
 
-Governing Law
-This service is governed by the laws of Mexico. Jurisdiction: Baja California Sur.
-`
-  },
-  es: {
-    header_line1: "La manera más facil de recorrer La Paz",
-    header_line2: "Movilidad moderna para explorar con libertad",
-    title_select_vehicle: "Renta un vehículo electronico",
-    scooter_title: "E-Scooter",
-    scooter_desc: "Perfecto para la ciudad",
-    ebike_title: "E-Bike",
-    ebike_desc: "Comodidad y distancias largas",
-    label_name: "Tu Nombre",
-    label_start: "Fecha de Inicio",
-    label_end: "Fecha Final",
-    label_quantity: "Cantidad",
-    label_delivery: "Ubicación de Entrega",
-    delivery_info: "La recogida de personas o entrega de vehiculos dentro de La Paz está incluida. Se aplican cargos adicionales fuera      de la ciudad.",
-    btn_whatsapp: "Enviar solicitud de reserva por WhatsApp",
-    price_list_title: "Precios (1–7 días @ 24 horas)",
+label_name: "Your Name",
+label_start: "Start Date",
+label_end: "End Date",
+label_quantity: "Quantity",
+label_delivery: "Delivery Zone",
 
-    legal_title: "Aviso Legal y Aviso de Privacidad",
+delivery_info: "Delivery within La Paz area.",
 
-legal_accept: "Al utilizar nuestros servicios usted acepta estos términos.",
+btn_whatsapp: "Send via WhatsApp",
 
-legal_text: `
-Condiciones de Renta
-Edad mínima: 18 años. Se requiere identificación oficial o pasaporte. Los vehículos deben utilizarse de forma responsable y conforme a las leyes de tránsito.
+price_list_title: "Prices (1–7 Days)",
 
-Responsabilidad
-El uso del vehículo se realiza bajo el propio riesgo del arrendatario. Baja Wheels no proporciona seguro para conductores, pasajeros o terceros.
+legal_title: "Legal Disclaimer",
+legal_accept: "I accept the legal conditions",
+legal_text: "...",
 
-Problemas Mecánicos
-En caso de falla mecánica no causada por uso indebido, Baja Wheels proporcionará asistencia o un vehículo de reemplazo si está disponible.
+whatsapp_message:
+"Hi Baja Wheels, I would like to rent {quantity} {vehicle}(s)\nfrom {start} to {end} in {zone}.\nTotal: MXN {price}.\nThanks, {customerName}"
+},
 
-Aviso de Privacidad
-Podemos recopilar datos personales básicos como nombre, contacto, fechas de renta y ubicación de entrega únicamente para procesar la solicitud de renta.
+es: {
 
-Los datos personales no se venden ni se comparten con terceros salvo obligación legal.
+page_title: "Baja Wheels – Alquiler de Scooters y Bicicletas Eléctricas",
 
-Contacto: bajawheelslapaz@gmail.com
+header_line1: "La forma amigable de explorar La Paz",
+header_line2: "Movilidad moderna para exploradores modernos",
+hero_text: "Disfruta de un vehículo potente acompañado de un servicio personalizado.",
 
-Legislación Aplicable
-Este servicio se rige por las leyes de México. Jurisdicción: Baja California Sur.
-`
-  }
+boutique_title: "Experiencia de alquiler boutique",
+boutique_text: "Te recogemos o entregamos tu vehículo directamente en tu hotel o alojamiento — completamente preparado y listo para conducir.Explora La Paz a tu propio ritmo: silencioso, suave y sin esfuerzo. <br><br>Reservar es fácil: elige tu vehículo, selecciona tus fechas y envía tu solicitud — nosotros nos encargamos del resto.",
+
+vehicle_question: "¿Qué vehículo quieres elegir?",
+
+scooter_title: "Scooter Eléctrico",
+scooter_desc: "Scooter potente para explorar la ciudad rápidamente.",
+
+ebike_title: "Bicicleta Eléctrica",
+ebike_desc: "eBike cómoda y potente para recorridos más largos.",
+
+btn_select: "Seleccionar",
+btn_back: "← Volver",
+
+vehicle_scooter: "scooters eléctricos",
+vehicle_ebike: "bicicletas eléctricas",
+
+label_name: "Tu nombre",
+label_start: "Fecha de inicio",
+label_end: "Fecha de fin",
+label_quantity: "Cantidad",
+label_delivery: "Zona de entrega",
+
+delivery_info: "Entrega dentro del área de La Paz.",
+
+btn_whatsapp: "Enviar por WhatsApp",
+
+price_list_title: "Precios (1–7 días)",
+
+legal_title: "Aviso legal",
+legal_accept: "Acepto las condiciones legales",
+legal_text: "...",
+
+whatsapp_message:
+"Hola Baja Wheels, me gustaría alquilar {quantity} {vehicle}(s)\ndesde {start} hasta {end} en {zone}.\nTotal: MXN {price}.\nGracias, {customerName}"
+
+}
+
 };
 
 function detectLanguage() {
@@ -94,14 +99,18 @@ function detectLanguage() {
 }
 
 function applyTranslations(lang) {
+
   document.querySelectorAll("[data-i18n]").forEach(el => {
+
     const key = el.getAttribute("data-i18n");
+
     if (translations[lang][key]) {
-      el.innerText = translations[lang][key];
+      el.innerHTML = translations[lang][key];
     }
+
   });
 
-  // Preislistentitel aktualisieren
+ // Preislistentitel aktualisieren
   const priceTitle = document.getElementById("priceListTitle");
   if (priceTitle) {
     priceTitle.innerText = translations[lang].price_list_title;
@@ -136,8 +145,12 @@ function selectVehicle(type, imagePath) {
 
   selectedVehicle = type;
 
-  document.getElementById("vehicleSelection").style.display = "none";
-  document.getElementById("bookingSection").classList.remove("hidden");
+  const vehicles = document.getElementById("vehicleSelection");
+  const booking = document.getElementById("bookingSection");
+
+  vehicles.style.display = "none";
+  booking.style.display = "block";
+  booking.classList.remove("hidden");
 
   if (!imagePath) {
     imagePath = type === "scooter" ? "scooter.jpeg" : "ebike.jpeg";
@@ -156,8 +169,15 @@ function selectVehicle(type, imagePath) {
 // ---------- BACK BUTTON ----------
 
 function closeForm() {
-  document.getElementById("bookingSection").style.display = "none";
-  document.getElementById("vehicleSelection").style.display = "block";
+
+  const booking = document.getElementById("bookingSection");
+  const vehicles = document.getElementById("vehicleSelection");
+
+  booking.classList.add("hidden");
+  booking.style.display = "none";
+
+  vehicles.style.display = "";
+
 }
 
 // ---------- PRICE LIST 1–7 DAYS ----------
@@ -177,7 +197,7 @@ function renderPriceList() {
     row.className = "price-row";
     row.innerHTML = `
       <span>${i} Day${i > 1 ? "s" : ""}</span>
-      <span>$${price}</span>
+      <span class="price">MXN ${formatMXN(price)}</span>
     `;
 
     container.appendChild(row);
@@ -196,7 +216,7 @@ function populateDeliveryZones() {
     option.text =
       zone.zone +
       (parseInt(zone.surcharge) > 0
-        ? " (+$" + zone.surcharge + ")"
+        ? " (+MXN " + formatMXN(zone.surcharge) + ")"
         : " (included)");
     select.appendChild(option);
   });
@@ -208,6 +228,7 @@ function getSurcharge(zoneName) {
 }
 
 // ---------- PRICE CALCULATION ----------
+
 
 function calculateDays(start, end) {
   const startDate = new Date(start + "T00:00:00");
@@ -221,6 +242,11 @@ function getPrice(days, vehicle) {
   if (!match) return 0;
   return parseInt(match[vehicle]);
 }
+
+function formatMXN(amount) {
+  return new Intl.NumberFormat("en-US").format(amount);
+}
+
 
 function calculate() {
   const start = document.getElementById("startDate").value;
@@ -244,12 +270,15 @@ function calculate() {
   const surcharge = getSurcharge(zone);
   const total = basePrice + surcharge;
 
-  document.getElementById("totalPrice").innerText = "$" + total;
+  document.getElementById("totalPrice").innerText = "MXN " + formatMXN(total);
 }
 
 // ---------- WHATSAPP ----------
 
 function sendWhatsApp() {
+
+  const lang = detectLanguage();
+
   const name = document.getElementById("customerName").value.trim();
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
@@ -262,49 +291,30 @@ function sendWhatsApp() {
     return;
   }
 
-  const message = `
-Hi Baja Wheels, I would like to rent ${quantity} ${selectedVehicle}(s) 
-from ${start} to ${end} in ${zone}. 
-Total: MXN ${total}. 
-Thanks, ${name}
-  `;
+  let message = translations[lang].whatsapp_message;
+
+  message = message
+    .replace("{vehicle}", translations[lang]["vehicle_" + selectedVehicle])
+    .replace("{start}", start)
+    .replace("{end}", end)
+    .replace("{quantity}", quantity)
+    .replace("{price}", total.replace("MXN ",""))
+    .replace("{zone}", zone)
+    .replace("{customerName}", name);
 
   const phoneNumber = "41797943212";
 
   const url =
-    "https://wa.me/" +
-    phoneNumber +
-    "?text=" +
-    encodeURIComponent(message);
+  "https://wa.me/" +
+  phoneNumber +
+  "?text=" +
+  encodeURIComponent(message);
 
   window.open(url, "_blank");
 }
 
-// ---------- INIT ----------
 
-document.addEventListener("DOMContentLoaded", function () {
-
-  const lang = detectLanguage();
-  applyTranslations(lang);
-
-  document.getElementById("startDate")?.addEventListener("change", calculate);
-  document.getElementById("endDate")?.addEventListener("change", calculate);
-  document.getElementById("quantity")?.addEventListener("input", calculate);
-  document.getElementById("deliveryZone")?.addEventListener("change", calculate);
-
-  const checkbox = document.getElementById("acceptLegal");
-  const whatsappBtn = document.getElementById("whatsappBtn");
-
-  if (checkbox && whatsappBtn) {
-    checkbox.addEventListener("change", function () {
-      whatsappBtn.disabled = !this.checked;
-    });
-  }
-
-  loadPrices();
-  loadSurcharges();
-
-});// ---------- INIT ----------
+/// ---------- INIT ----------
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -351,4 +361,3 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
-
